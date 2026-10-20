@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HARSH WALKWEAR | Cloud-Comfort Shoes | Chandigarh Flagship</title>
+  <meta name="description" content="Inspired by Neeman's aesthetic comfort. Breathable Merino wool sneakers, slip-ons, and walkers crafted for everyday luxury. Visit our Chandigarh Flagship at SCO 65-66 Sector 34B.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       ANNOUNCEMENT BAR
+       ========================================== -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-item">
+        <span class="announcement-badge">Chandigarh Exclusive</span>
+        <span>Visit our Flagship Studio at <strong>SCO 65-66, Sector 34B, Chandigarh</strong></span>
+      </div>
+      <div class="announcement-item" style="display: flex; align-items: center; gap: 16px;">
+        <span style="display: none; @media(min-width: 900px){display: inline;}">🎉 Free Nationwide Express Shipping on all orders!</span>
+        <a href="tel:6230427856" class="announcement-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Direct Line: +91 6230427856
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       NAVIGATION BAR
+       ========================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo">
+        <span class="logo-main">HARSH</span>
+        <span class="logo-sub">WALKWEAR • CHANDIGARH</span>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#collectionSection" class="nav-link active">Collections</a></li>
+          <li><a href="#collectionSection" class="nav-link" onclick="STATE.activeCategory='sneakers'; renderProducts();">Sneakers</a></li>
+          <li><a href="#collectionSection" class="nav-link" onclick="STATE.activeCategory='slipons'; renderProducts();">Slip-Ons</a></li>
+          <li><a href="#collectionSection" class="nav-link" onclick="STATE.activeCategory='loafers'; renderProducts();">Loafers</a></li>
+          <li><a href="#philosophySection" class="nav-link">Comfort Lab</a></li>
+          <li><a href="#flagshipSection" class="nav-link badge-link">Flagship Studio <span class="city-tag">Sec 34B</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Action Icons -->
+      <div class="nav-actions">
+        <!-- Search Trigger -->
+        <button class="nav-icon-btn" id="openSearchBtn" title="Search shoes" aria-label="Search shoes">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <!-- Instagram Profile Link -->
+        <a href="https://instagram.com/harsh_garg009" target="_blank" rel="noopener" class="nav-icon-btn" title="Follow Harsh on Instagram (@harsh_garg009)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+
+        <!-- Wishlist Button -->
+        <button class="nav-icon-btn" onclick="openWishlistModal()" title="View Wishlist" aria-label="View Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="counter-badge" id="wishlistBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Cart Trigger Button -->
+        <button class="nav-icon-btn" id="openCartBtn" title="Open Cart" aria-label="Open Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="counter-badge" id="cartBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="nav-icon-btn mobile-menu-toggle" id="mobileMenuToggle" title="Open Menu" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION (NEEMAN'S EDITORIAL VIBE)
+       ========================================== -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="dot"></span>
+          Natural Merino & Eco-Knit Comfort
+        </div>
+        <h1 class="hero-title">
+          Step into <em>Cloud-Like</em> Comfort.
+        </h1>
+        <p class="hero-desc">
+          Crafted with breathable Australian Merino wool, organic cotton weaves, and featherlight bio-cushioning. Designed by Harsh in Chandigarh for walking effortlessly all day long with zero socks and zero break-in.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#collectionSection" class="btn btn-primary">
+            Explore Collection
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#flagshipSection" class="btn btn-secondary">
+            Visit Chandigarh Studio
+          </a>
+          <a href="https://wa.me/916230427856?text=Hello%20Harsh,%20I'm%20interested%20in%20your%20shoe%20collection!" target="_blank" class="btn btn-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+            Chat with Harsh
+          </a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-number">220g</span>
+            <span class="metric-label">Featherlight Sole</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">10,000+</span>
+            <span class="metric-label">Steps Friction-Free</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">4.9 ★</span>
+            <span class="metric-label">Chandigarh Rated</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual Showcase -->
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80" alt="Harsh Walkwear Hero Shoe">
+        </div>
+
+        <!-- Floating Badge 1 -->
+        <div class="floating-card floating-card-1">
+          <div class="float-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="float-info">
+            <h4>Zero Break-in Period</h4>
+            <p>Ready to wear right out of the box</p>
+          </div>
+        </div>
+
+        <!-- Floating Badge 2 -->
+        <div class="floating-card floating-card-2">
+          <div class="float-icon" style="background: var(--brand-green-light); color: var(--brand-green);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <div class="float-info">
+            <h4>Australian Merino Wool</h4>
+            <p>100% Breathable & Odor-Resistant</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       NEEMAN'S COMFORT PILLARS / USPS
+       ========================================== -->
+  <section class="usps-strip">
+    <div class="container usps-grid">
+      <div class="usp-box">
+        <div class="usp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+        </div>
+        <div class="usp-text">
+          <h4>Ultra Featherweight</h4>
+          <p>Weighs an average of 220g for effortless strides.</p>
+        </div>
+      </div>
+
+      <div class="usp-box">
+        <div class="usp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+        </div>
+        <div class="usp-text">
+          <h4>No Socks Required</h4>
+          <p>Silky soft inner lining prevents friction and blisters.</p>
+        </div>
+      </div>
+
+      <div class="usp-box">
+        <div class="usp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <div class="usp-text">
+          <h4>Easy Machine Wash</h4>
+          <p>Pop them in the washing machine on gentle cold cycle.</p>
+        </div>
+      </div>
+
+      <div class="usp-box">
+        <div class="usp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <div class="usp-text">
+          <h4>Chandigarh Studio</h4>
+          <p>Try them in person at SCO 65-66, Sector 34B.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       COLLECTION & CATALOG SECTION
+       ========================================== -->
+  <section class="section" id="collectionSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">The Harsh Collection</span>
+        <h2 class="section-title">Engineered For All-Day Movement</h2>
+        <p class="section-subtitle">
+          Explore versatile footwear designed with sustainable minimalist aesthetics. From boardroom loafers to featherlight sneakers.
+        </p>
+      </div>
+
+      <!-- Catalog Toolbar (Filters & Sorting) -->
+      <div class="catalog-toolbar">
+        <div class="category-tabs">
+          <button class="cat-btn active" data-category="all">All Styles</button>
+          <button class="cat-btn" data-category="sneakers">Sneakers</button>
+          <button class="cat-btn" data-category="slipons">Breeze Slip-Ons</button>
+          <button class="cat-btn" data-category="loafers">ReKnit Loafers</button>
+          <button class="cat-btn" data-category="walkers">Active Walkers</button>
+        </div>
+
+        <div class="catalog-sort">
+          <label for="catalogSort" class="sort-label">Sort by:</label>
+          <select id="catalogSort" class="sort-select">
+            <option value="featured">Featured / Bestsellers</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Customer Rating</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Injected dynamically via js/app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CHANDIGARH FLAGSHIP STUDIO SHOWCASE
+       ========================================== -->
+  <section class="section flagship-section" id="flagshipSection">
+    <div class="container flagship-grid">
+      <div class="flagship-info">
+        <span class="flagship-badge">Physical Experience Center</span>
+        <h2 class="flagship-title">Experience The Cloud Feel in Chandigarh</h2>
+        <p style="color: #D4D4D8; font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
+          Nothing compares to sliding your feet into our Merino wool shoes in person. Visit Harsh's flagship studio in the heart of Sector 34B Chandigarh to get personalized fit consultations, foot pressure analysis, and private trials.
+        </p>
+
+        <!-- Address Card -->
+        <div class="flagship-address-card">
+          <div class="address-line">
+            <svg class="address-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div class="address-text">
+              <h5>Flagship Studio Address</h5>
+              <p>SCO 65-66, Sector 34B, Chandigarh, 160022</p>
+            </div>
+          </div>
+
+          <div class="address-line">
+            <svg class="address-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <div class="address-text">
+              <h5>Direct Phone & Inquiries</h5>
+              <p><a href="tel:6230427856" style="color: #F59E0B; text-decoration: underline;">+91 6230427856</a> (Harsh Garg)</p>
+            </div>
+          </div>
+
+          <div class="address-line">
+            <svg class="address-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="address-text">
+              <h5>Instagram Profile</h5>
+              <p><a href="https://instagram.com/harsh_garg009" target="_blank" rel="noopener" style="color: #F472B6; text-decoration: underline;">@harsh_garg009</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flagship-actions">
+          <a href="tel:6230427856" class="btn btn-primary" style="background: #FFFFFF; color: #18181B; border-color: #FFF;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Call Harsh (6230427856)
+          </a>
+          <a href="https://maps.google.com/?q=SCO+65-66+Sector+34B+Chandigarh" target="_blank" rel="noopener" class="btn btn-secondary" style="background: transparent; color: #FFF; border-color: rgba(255,255,255,0.3);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+            Get Driving Directions
+          </a>
+        </div>
+      </div>
+
+      <div class="flagship-media-card">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80" alt="Chandigarh Sector 34B Store Experience">
+        <div class="flagship-floating-tag">
+          <div>
+            <div class="store-hours-title">Studio Opening Hours</div>
+            <div class="store-hours-val">Monday - Sunday: 10:30 AM – 9:00 PM</div>
+          </div>
+          <span style="background: var(--brand-green); color: #FFF; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">Open Today</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       THE HARSH PHILOSOPHY / SUSTAINABLE CRAFT
+       ========================================== -->
+  <section class="section" id="philosophySection" style="background: #FFF;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">The Neeman's Spirit</span>
+        <h2 class="section-title">Natural Innovation, Zero Compromise</h2>
+        <p class="section-subtitle">
+          Conventional footwear uses stiff plastics and synthetic adhesives. Harsh Walkwear utilizes nature’s best fibers to treat your feet with unyielding gentleness.
+        </p>
+      </div>
+
+      <div class="craft-grid">
+        <div class="craft-card">
+          <span class="craft-number">01</span>
+          <div class="craft-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Australian Merino Wool</h3>
+          <p>Microscopic crimped wool fibers naturally wick moisture away, adapt to ambient temperatures, and suppress bacterial odors so you can walk completely sockless.</p>
+        </div>
+
+        <div class="craft-card">
+          <span class="craft-number">02</span>
+          <div class="craft-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+          </div>
+          <h3>Sugarcane Bio-EVA Foam</h3>
+          <p>Our outsoles harness renewable sugarcane polymers. Bouncy, resilient, and shock-absorbing, delivering up to 60% energy return on hard concrete.</p>
+        </div>
+
+        <div class="craft-card">
+          <span class="craft-number">03</span>
+          <div class="craft-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <h3>Castor Bean Insoles</h3>
+          <p>Infused with natural castor seed oil and recycled cork granules, our ergonomic insoles provide anatomical arch support that won't flatten over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INSTAGRAM COMMUNITY STRIP
+       ========================================== -->
+  <section class="instagram-strip">
+    <div class="container">
+      <div class="instagram-header">
+        <div>
+          <span class="section-eyebrow">Follow The Journey</span>
+          <h2 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 800;">
+            Tag us <a href="https://instagram.com/harsh_garg009" target="_blank" rel="noopener" class="insta-handle">@harsh_garg009</a>
+          </h2>
+        </div>
+        <a href="https://instagram.com/harsh_garg009" target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          View Instagram Profile
+        </a>
+      </div>
+
+      <div class="insta-grid">
+        <a href="https://instagram.com/harsh_garg009" target="_blank" class="insta-item">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80" alt="Harsh Walkwear Lifestyle 1">
+          <div class="insta-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+        </a>
+        <a href="https://instagram.com/harsh_garg009" target="_blank" class="insta-item">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=500&q=80" alt="Harsh Walkwear Lifestyle 2">
+          <div class="insta-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+        </a>
+        <a href="https://instagram.com/harsh_garg009" target="_blank" class="insta-item">
+          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=500&q=80" alt="Harsh Walkwear Lifestyle 3">
+          <div class="insta-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+        </a>
+        <a href="https://instagram.com/harsh_garg009" target="_blank" class="insta-item">
+          <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=500&q=80" alt="Harsh Walkwear Lifestyle 4">
+          <div class="insta-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+        </a>
+        <a href="https://instagram.com/harsh_garg009" target="_blank" class="insta-item">
+          <img src="https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?auto=format&fit=crop&w=500&q=80" alt="Harsh Walkwear Lifestyle 5">
+          <div class="insta-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+        </a>
+        <a href="https://instagram.com/harsh_garg009" target="_blank" class="insta-item">
+          <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=500&q=80" alt="Harsh Walkwear Lifestyle 6">
+          <div class="insta-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CART DRAWER & BACKDROP
+       ========================================== -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        Shopping Bag
+      </h3>
+      <button class="close-btn" id="closeCartBtn" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Free Shipping Meter -->
+    <div class="free-shipping-meter">
+      <div class="shipping-text" id="shippingMeterText">
+        Add <strong>₹999</strong> for <strong>Free Express Shipping!</strong>
+      </div>
+      <div class="shipping-progress-bar">
+        <div class="shipping-progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items -->
+    <div class="cart-items" id="cartItemsContainer">
+      <!-- Injected via js/app.js -->
+    </div>
+
+    <!-- Cart Footer & Actions -->
+    <div class="cart-footer">
+      <div class="coupon-box">
+        <input type="text" class="coupon-input" id="couponInput" placeholder="Coupon Code (HARSH10)">
+        <button class="coupon-btn" id="applyCouponBtn">Apply</button>
+      </div>
+
+      <div class="applied-coupon-pill" id="appliedCouponPill">
+        <span>🎉 Coupon Applied: <strong id="appliedCodeName"></strong></span>
+        <button onclick="removePromoCoupon()" style="color: #EF4444; font-weight: 800; margin-left: 8px;">✕</button>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="summary-row" style="color: var(--brand-green);">
+          <span>Discount</span>
+          <span id="cartDiscount">- ₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Nationwide Shipping</span>
+          <span style="color: var(--brand-green); font-weight: 700;">FREE</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="cartTotal">₹0</span>
+        </div>
+      </div>
+
+      <div class="cart-actions">
+        <!-- Instant WhatsApp Order Button -->
+        <button class="btn btn-whatsapp" onclick="checkoutViaWhatsApp()" style="width: 100%; padding: 14px 20px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+          Instant WhatsApp Checkout
+        </button>
+
+        <!-- Standard Web Checkout Button -->
+        <button class="btn btn-primary" id="proceedCheckoutBtn" style="width: 100%;">
+          Proceed to Online Checkout
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       QUICK VIEW MODAL
+       ========================================== -->
+  <div class="modal-wrapper" id="quickViewModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="quickViewClose" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="quickViewContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       ONLINE CHECKOUT MODAL
+       ========================================== -->
+  <div class="modal-wrapper" id="checkoutModal">
+    <div class="modal-content checkout-box" id="checkoutModalBody">
+      <button class="modal-close-btn" id="checkoutModalClose" aria-label="Close checkout">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div class="checkout-header">
+        <span class="section-eyebrow">Express Checkout</span>
+        <h3>Complete Your Order</h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Direct dispatch from our Chandigarh Flagship Studio to your doorstep.</p>
+      </div>
+
+      <div class="checkout-summary-strip">
+        <div>
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">Total Payable:</span>
+          <strong id="checkoutTotalAmount" style="font-size: 1.3rem; margin-left: 6px; color: var(--text-primary);">₹0</strong>
+        </div>
+        <span id="checkoutItemsCount" style="font-size: 0.85rem; background: #FFF; padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 700;">0 items</span>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-group">
+          <label for="custName">Full Name *</label>
+          <input type="text" id="custName" class="form-control" placeholder="e.g. Harsh Garg" required>
+        </div>
+
+        <div class="form-group">
+          <label for="custPhone">Phone Number (Calling / WhatsApp) *</label>
+          <input type="tel" id="custPhone" class="form-control" placeholder="e.g. 6230427856" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="custAddress">Complete Street Address *</label>
+          <input type="text" id="custAddress" class="form-control" placeholder="House/Flat No., Sector, Landmark" required>
+        </div>
+
+        <div class="form-group">
+          <label for="custCity">City / District *</label>
+          <input type="text" id="custCity" class="form-control" value="Chandigarh" required>
+        </div>
+
+        <div class="form-group">
+          <label for="custPincode">Pincode *</label>
+          <input type="text" id="custPincode" class="form-control" placeholder="160022" required>
+        </div>
+
+        <div class="form-group full-width" style="margin-top: 10px;">
+          <label>Payment Mode</label>
+          <div style="display: flex; gap: 20px; margin-top: 6px;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500;">
+              <input type="radio" name="paymentMode" value="Cash on Delivery" checked> Cash on Delivery (COD)
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500;">
+              <input type="radio" name="paymentMode" value="UPI / QR Code"> UPI / QR at Doorstep
+            </label>
+          </div>
+        </div>
+
+        <div class="full-width" style="margin-top: 20px;">
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
+            Confirm & Place Order
+          </button>
+        </div>
+      </form>
+    </div>
+  <!-- ==========================================
+       WISHLIST MODAL
+       ========================================== -->
+  <div class="modal-wrapper" id="wishlistModal">
+    <div class="modal-content checkout-box">
+      <button class="modal-close-btn" id="wishlistModalClose" aria-label="Close wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div class="checkout-header">
+        <span class="section-eyebrow">Your Favorites</span>
+        <h3>Saved Wishlist</h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Styles you've favorited for your next walk.</p>
+      </div>
+
+      <div id="wishlistModalContent" style="display: flex; flex-direction: column; gap: 16px; max-height: 60vh; overflow-y: auto;">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SEARCH MODAL
+       ========================================== -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <input type="text" id="searchInput" class="search-input-field" placeholder="Search comfort shoes, sneakers, loafers..." autocomplete="off">
+        <button id="closeSearchBtn" style="color: var(--text-primary); font-size: 1.4rem; padding: 6px;">✕</button>
+      </div>
+      <div class="search-results-list" id="searchResults">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Type to search sneakers, loafers, slip-ons, or walkers...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <!-- Col 1: Brand & Contact Info -->
+      <div class="footer-brand">
+        <h2>HARSH</h2>
+        <p>
+          Redefining all-day footwear with natural materials, featherlight innovation, and Chandigarh pride. Inspired by the purity of minimalist design.
+        </p>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>SCO 65-66, Sector 34B, Chandigarh, 160022</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:6230427856">+91 6230427856 (Harsh)</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <a href="https://instagram.com/harsh_garg009" target="_blank" rel="noopener">Instagram: @harsh_garg009</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Collections -->
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul class="footer-links">
+          <li><a href="#collectionSection" onclick="STATE.activeCategory='sneakers'; renderProducts();">Cloud Merino Sneakers</a></li>
+          <li><a href="#collectionSection" onclick="STATE.activeCategory='slipons'; renderProducts();">Breeze Knit Slip-Ons</a></li>
+          <li><a href="#collectionSection" onclick="STATE.activeCategory='loafers'; renderProducts();">The ReKnit Loafers</a></li>
+          <li><a href="#collectionSection" onclick="STATE.activeCategory='walkers'; renderProducts();">AeroGlide Walkers</a></li>
+          <li><a href="#collectionSection" onclick="STATE.activeCategory='all'; renderProducts();">All Products</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Experience & Care -->
+      <div class="footer-col">
+        <h4>Experience</h4>
+        <ul class="footer-links">
+          <li><a href="#flagshipSection">Chandigarh Sector 34B Studio</a></li>
+          <li><a href="#philosophySection">The Comfort Lab</a></li>
+          <li><a href="#collectionSection">Featured Footwear</a></li>
+          <li><a href="tel:6230427856">Book Studio Trial Appointment</a></li>
+          <li><a href="https://wa.me/916230427856?text=Hi%20Harsh!%20Need%20help%20with%20sizing" target="_blank">Size & Fit Consultation</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter & Exclusive Perks -->
+      <div class="footer-col footer-newsletter">
+        <h4>Stay in Comfort</h4>
+        <p>Subscribe to receive secret discount drops, Chandigarh studio private invites, and new shoe releases.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing! Check your inbox for HARSH10', 'success'); this.reset();">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.85rem;">Join</button>
+        </form>
+        <div style="font-size: 0.78rem; color: #71717A;">
+          Use code <strong style="color: var(--brand-amber);">HARSH10</strong> for 10% off your first pair.
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        © 2026 HARSH WALKWEAR. All Rights Reserved. Curated with pride in Chandigarh.
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="tel:6230427856">Call: 6230427856</a>
+        <a href="https://instagram.com/harsh_garg009" target="_blank">Instagram: @harsh_garg009</a>
+        <a href="#flagshipSection">SCO 65-66 Sector 34B</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
