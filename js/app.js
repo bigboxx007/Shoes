@@ -229,7 +229,7 @@ window.selectCardSize = function(event, productId, size, sizeEl) {
 };
 
 function initCategoryFilters() {
-  const buttons = document.querySelectorAll('.cat-btn');
+  const buttons = document.querySelectorAll('.cat-btn[data-category]');
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
