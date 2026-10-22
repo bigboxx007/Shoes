@@ -4,34 +4,35 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette - Neeman's Warm Earth & Obsidian */
-  --bg-primary: #FBF9F5;
+  /* Color Palette - Neeman's Warm Earth, Alabaster & Obsidian Noir */
+  --bg-primary: #FAF7F2;
   --bg-surface: #FFFFFF;
-  --bg-subtle: #F4F1EA;
+  --bg-subtle: #F3EFEA;
   --bg-card: #FFFFFF;
   --bg-dark: #141416;
   --bg-dark-surface: #1E1E22;
 
-  --text-primary: #18181B;
-  --text-secondary: #57575E;
-  --text-muted: #8E8E93;
-  --text-light: #FBF9F5;
+  --text-primary: #171719;
+  --text-secondary: #5A5652;
+  --text-muted: #8E8A85;
+  --text-light: #FAF7F2;
 
-  --brand-amber: #B45309;
-  --brand-amber-light: #FEF3C7;
-  --brand-terracotta: #C26343;
-  --brand-green: #15803D;
-  --brand-green-light: #DCFCE7;
+  --brand-amber: #A35F33;
+  --brand-amber-light: #FBF0E6;
+  --brand-terracotta: #B46538;
+  --brand-green: #236B45;
+  --brand-green-light: #E7F3EC;
   --brand-whatsapp: #25D366;
   --brand-whatsapp-hover: #20BA5A;
 
-  --border-light: #E7E3DA;
-  --border-subtle: #F0EDE5;
-  --border-focus: #18181B;
+  --border-light: #E8E2D8;
+  --border-subtle: #F2EDE4;
+  --border-focus: #171719;
 
-  /* Typography */
+  /* Typography - Editorial Luxury */
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: 'Outfit', 'Playfair Display', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-accent: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 
   /* Elevation & Shadows */
   --shadow-sm: 0 2px 8px rgba(24, 24, 27, 0.04);
@@ -362,26 +363,28 @@ button {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.8rem, 5.4vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
   color: var(--text-primary);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .hero-title em {
   font-style: italic;
   color: var(--brand-amber);
-  font-weight: 700;
+  font-weight: 500;
+  padding-right: 4px;
 }
 
 .hero-desc {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 520px;
+  line-height: 1.75;
+  max-width: 530px;
   margin-bottom: 36px;
+  font-weight: 400;
 }
 
 .hero-cta-group {
@@ -608,29 +611,51 @@ button {
 }
 
 .section-eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--brand-amber);
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--brand-amber);
+  opacity: 0.7;
 }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 14px;
+  line-height: 1.16;
+  margin-bottom: 16px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--brand-amber);
+  font-weight: 500;
+  padding-right: 4px;
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 400;
 }
 
 /* ==========================================================================
@@ -1194,8 +1219,9 @@ button {
 .craft-number {
   font-family: var(--font-serif);
   font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--bg-subtle);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--border-light);
   position: absolute;
   top: 24px;
   right: 28px;
@@ -1214,10 +1240,12 @@ button {
 }
 
 .craft-card h3 {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 1.42rem;
+  font-weight: 700;
   margin-bottom: 12px;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .craft-card p {
@@ -2403,11 +2431,13 @@ button {
 }
 
 .service-main-card h3 {
-  font-size: 1.3rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
-  line-height: 1.3;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .service-main-card p.service-desc {
@@ -2512,10 +2542,12 @@ button {
 }
 
 .spa-pkg-title {
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
   margin-bottom: 6px;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .spa-pkg-subtitle {
